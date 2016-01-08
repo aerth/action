@@ -4,7 +4,10 @@
 
 # This is helper script for a social keylogger known as asciinema,
 # a terminal recording device written in Go.
-
+APP=$(which asciinema)
+if [[ -z "$APP" ]]; then
+sudo curl -sL https://asciinema.org/install | sh
+fi
 # Copyright 2016 aerth (https://earthbot.net)
 # Full text at http://opensource.org/licenses/MIT
 # The above copyright notice and this permission notice shall be
