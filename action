@@ -9,10 +9,17 @@
 # Full text at http://opensource.org/licenses/MIT
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-
 echo What is the title # This read command asks us for a title.
 read TITLE
-echo "Starting Recording in..."; # Warning!
+# echo ${#TITLE} char title.
+
+# Trim user input to just a couple words, replace spaces with dots.
+# Prepare Title for Filename
+
+TRIM1=$(echo $TITLE | cut -d ' ' -f 1);TRIM2=$(echo $TITLE | cut -d ' ' -f 2);TRIM3=$(echo $TITLE | cut -d ' ' -f 3);
+TRIM=$TRIM1.$TRIM2.$TRIM3
+
+echo "We are *LIVE* in..."; # Warning!
 sleep 1; echo "3";
 sleep 1; echo "2";
 sleep 1; echo "1";
@@ -21,6 +28,6 @@ sleep 1;
 TERM="lol" # This switches for fun.
 export TERM="lol"
 NOW=$(date +"%m-%d-%Y-%H%M%S");
-$HOME/bin/asciinema rec -t "$TITLE" -w 2 $NOW.ascii
+$HOME/bin/asciinema rec -t "$TITLE" -w 2 $TRIM$NOW.json &
 TERM="xterm" # This fixes $TERM for things like nano, w3m...
 export TERM="xterm" # This fixes $TERM for things like nano, w3m...
