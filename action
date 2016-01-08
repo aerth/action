@@ -28,6 +28,6 @@ sleep 1;
 TERM="lol" # This switches for fun.
 export TERM="lol"
 NOW=$(date +"%m-%d-%Y-%H%M%S");
-$HOME/bin/asciinema rec -t "$TITLE" -w 2 $TRIM$NOW.json &
+$HOME/bin/asciinema rec -t "$TITLE" -w 2 $TRIM.$NOW.json
 TERM="xterm" # This fixes $TERM for things like nano, w3m...
 export TERM="xterm" # This fixes $TERM for things like nano, w3m...
