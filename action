@@ -4,14 +4,15 @@
 
 # This is helper script for a social keylogger known as asciinema,
 # a terminal recording device written in Go.
-APP=$(which asciinema)
+APP=$(which asciinema) # Checks for installed asciinema
 if [[ -z "$APP" ]]; then
-sudo curl -sL https://asciinema.org/install | sh
+sudo curl -sL https://asciinema.org/install | sh # installs if not present
 fi
 # Copyright 2016 aerth (https://earthbot.net)
 # Full text at http://opensource.org/licenses/MIT
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
+
 echo What is the title # This read command asks us for a title.
 read TITLE
 # echo ${#TITLE} char title.
@@ -21,6 +22,7 @@ read TITLE
 
 TRIM1=$(echo $TITLE | cut -d ' ' -f 1);TRIM2=$(echo $TITLE | cut -d ' ' -f 2);TRIM3=$(echo $TITLE | cut -d ' ' -f 3);
 TRIM=$TRIM1.$TRIM2.$TRIM3
+
 
 echo "We are *LIVE* in..."; # Warning!
 sleep 1; echo "3";
