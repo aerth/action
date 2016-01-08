@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Action
+
+# This is helper script for a social keylogger known as asciinema,
+# a terminal recording device written in Go.
+
+# Copyright 2016 aerth (https://earthbot.net)
+# Full text at http://opensource.org/licenses/MIT
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+
+echo What is the title # This read command asks us for a title.
+read TITLE
+echo "Starting Recording in..."; # Warning!
+sleep 1; echo "3";
+sleep 1; echo "2";
+sleep 1; echo "1";
+sleep 1;
+# ACTION!
+TERM="lol" # This switches for fun.
+export TERM="lol"
+NOW=$(date +"%m-%d-%Y-%H%M%S");
+$HOME/bin/asciinema rec -t "$TITLE" -w 2 $NOW.ascii
+TERM="xterm" # This fixes $TERM for things like nano, w3m...
+export TERM="xterm" # This fixes $TERM for things like nano, w3m...
